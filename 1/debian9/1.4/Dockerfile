@@ -1,9 +1,9 @@
 # Download and unpack the Kube State Merics release code from github
 FROM gcr.io/google-appengine/debian9 as downloader
 
-ENV KUBE_STATE_METRICS_VERSION 1.3.1
+ENV KUBE_STATE_METRICS_VERSION 1.4.0
 ENV KUBE_STATE_METRICS_URL="https://github.com/kubernetes/kube-state-metrics/archive/v$KUBE_STATE_METRICS_VERSION.tar.gz"
-ENV KUBE_STATE_METRICS_SHA256 e8ed769bb790dbcbfe922d5676b761a178ff5fb0455bf7e1d65a35d7494f19f5
+ENV KUBE_STATE_METRICS_SHA256 f158e1f3b3a5b618ebc944de3dc61aa00ee6cade68c8cef062dea5915fb0e787
 
 RUN set -x && \
     apt-get update && \
@@ -19,7 +19,7 @@ FROM golang:1.10 as builder
 WORKDIR /go/src/k8s.io/kube-state-metrics
 
 ENV PKG=k8s.io/kube-state-metrics
-ENV TAG=1.3.1
+ENV TAG=1.4.0
 
 ENV GCO_ENABLED=0
 ENV GOOS=linux
