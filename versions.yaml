@@ -27,7 +27,7 @@ versions:
       - 'latest'
     from: *from
     templateArgs:
-      golangVersion: 1.16
+      golangVersion: 1.12
     packages:
       kubestatemetrics:
         version: '1.6.0'
