@@ -15,7 +15,7 @@ RUN set -x && \
 
 
 # Build the binary with Go
-FROM golang:1.16 as builder
+FROM golang:1.12 as builder
 WORKDIR /go/src/k8s.io/kube-state-metrics
 
 ENV PKG=k8s.io/kube-state-metrics
