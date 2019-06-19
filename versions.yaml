@@ -21,6 +21,7 @@ versions:
     tags:
       - '1.6.0-debian9'
       - '1.6-debian9'
+      - '1-debian9'
       - '1.6.0'
       - '1.6'
       - '1'
@@ -31,13 +32,12 @@ versions:
     packages:
       kubestatemetrics:
         version: '1.6.0'
-        sha256: 95f670959aebf504cb00ce3e0148f58fa03910c703cd69fa6eecb122457ea8c5
+        sha256: '95f670959aebf504cb00ce3e0148f58fa03910c703cd69fa6eecb122457ea8c5'
   - dir: '1/debian9/1.5'
     repo: kube-state-metrics1
     tags:
       - '1.5.0-debian9'
       - '1.5-debian9'
-      - '1-debian9'
       - '1.5.0'
       - '1.5'
     from: *from
