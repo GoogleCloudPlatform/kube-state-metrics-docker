@@ -3,7 +3,7 @@ FROM gcr.io/google-appengine/debian9 as downloader
 
 ENV KUBE_STATE_METRICS_VERSION 1.3.1
 ENV KUBE_STATE_METRICS_URL="https://github.com/kubernetes/kube-state-metrics/archive/v$KUBE_STATE_METRICS_VERSION.tar.gz"
-ENV KUBE_STATE_METRICS_SHA256 e8ed769bb790dbcbfe922d5676b761a178ff5fb0455bf7e1d65a35d7494f19f5
+ENV KUBE_STATE_METRICS_SHA256 68254c92811746df5032e87f563de2e930a54bd47ee44bca36b96d4c39f10593
 
 RUN set -x && \
     apt-get update && \

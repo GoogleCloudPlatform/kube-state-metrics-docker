@@ -32,7 +32,7 @@ versions:
     packages:
       kubestatemetrics:
         version: '1.6.0'
-        sha256: '95f670959aebf504cb00ce3e0148f58fa03910c703cd69fa6eecb122457ea8c5'
+        sha256: 'c454db17ee518cef3eb78e8fd9808c8879b7c1292e0817ec431ff8e38fed5084'
   - dir: '1/debian9/1.5'
     repo: kube-state-metrics1
     tags:
@@ -46,7 +46,7 @@ versions:
     packages:
       kubestatemetrics:
         version: '1.5.0'
-        sha256: 'd68da22c913ced956da34fa688040be5ba7de98dcb27d0ec6114835be747dad2'
+        sha256: 'bad8097d0c12fd9a1037733f4047bb0cdfc52857a1c1965cac16c842d9b2e98e'
   - dir: '1/debian9/1.4'
     repo: kube-state-metrics1
     tags:
@@ -60,7 +60,7 @@ versions:
     packages:
       kubestatemetrics:
         version: '1.4.0'
-        sha256: 'f158e1f3b3a5b618ebc944de3dc61aa00ee6cade68c8cef062dea5915fb0e787'
+        sha256: '0e5ef27633c0e15991ca5e7651fb1d7f8de5e142680f8531070403bbb3916ece'
   - dir: '1/debian9/1.3'
     repo: kube-state-metrics1
     tags:
@@ -74,4 +74,4 @@ versions:
     packages:
       kubestatemetrics:
         version: '1.3.1'
-        sha256: 'e8ed769bb790dbcbfe922d5676b761a178ff5fb0455bf7e1d65a35d7494f19f5'
+        sha256: '68254c92811746df5032e87f563de2e930a54bd47ee44bca36b96d4c39f10593'
