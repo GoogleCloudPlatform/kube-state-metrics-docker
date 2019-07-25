@@ -31,7 +31,7 @@ versions:
       golangVersion: 1.12
     packages:
       kubestatemetrics:
-        version: '1.7.0'
+        version: '1.7.1'
         sha256: '03650fbd73bd26b7e3542fd235e3445d8fe716e744f559457d916ab6817966fc'
   - dir: '1/debian9/1.6'
     repo: kube-state-metrics1
