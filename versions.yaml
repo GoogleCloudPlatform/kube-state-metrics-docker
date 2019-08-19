@@ -19,10 +19,10 @@ versions:
   - dir: '1/debian9/1.7'
     repo: kube-state-metrics1
     tags:
-      - '1.7.1-debian9'
+      - '1.7.2-debian9'
       - '1.7-debian9'
       - '1-debian9'
-      - '1.7.1'
+      - '1.7.2'
       - '1.7'
       - '1'
       - 'latest'
@@ -31,8 +31,8 @@ versions:
       golangVersion: 1.12
     packages:
       kubestatemetrics:
-        version: '1.7.1'
-        sha256: '03650fbd73bd26b7e3542fd235e3445d8fe716e744f559457d916ab6817966fc'
+        version: '1.7.2'
+        sha256: 'cb991bfce8288ef97cc7bbd8729068d0d3238890c091e09874956cc555a0b515'
   - dir: '1/debian9/1.6'
     repo: kube-state-metrics1
     tags:
