@@ -5,6 +5,8 @@ ENV KUBE_STATE_METRICS_VERSION 1.4.0
 ENV KUBE_STATE_METRICS_URL="https://github.com/kubernetes/kube-state-metrics/archive/v$KUBE_STATE_METRICS_VERSION.tar.gz"
 ENV KUBE_STATE_METRICS_SHA256 f158e1f3b3a5b618ebc944de3dc61aa00ee6cade68c8cef062dea5915fb0e787
 
+ENV C2D_RELEASE=${KUBE_STATE_METRICS_VERSION}
+
 RUN set -x && \
     apt-get update && \
     apt-get install -qq -y wget && \
