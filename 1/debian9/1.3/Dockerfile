@@ -5,8 +5,6 @@ ENV KUBE_STATE_METRICS_VERSION 1.3.1
 ENV KUBE_STATE_METRICS_URL="https://github.com/kubernetes/kube-state-metrics/archive/v$KUBE_STATE_METRICS_VERSION.tar.gz"
 ENV KUBE_STATE_METRICS_SHA256 e8ed769bb790dbcbfe922d5676b761a178ff5fb0455bf7e1d65a35d7494f19f5
 
-ENV C2D_RELEASE=${KUBE_STATE_METRICS_VERSION}
-
 RUN set -x && \
     apt-get update && \
     apt-get install -qq -y wget && \
@@ -37,6 +35,8 @@ RUN set -x && \
 
 # Build the final image
 FROM gcr.io/google-appengine/debian9
+
+ENV C2D_RELEASE=1.3.1
 
 COPY --from=downloader /release/LICENSE /kube-state-metrics-LICENSE
 COPY --from=builder /go/src/k8s.io/kube-state-metrics/kube-state-metrics /

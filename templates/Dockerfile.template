@@ -8,8 +8,6 @@ ENV KUBE_STATE_METRICS_VERSION {{ $kubestatemetrics.Version }}
 ENV KUBE_STATE_METRICS_URL="https://github.com/kubernetes/kube-state-metrics/archive/v$KUBE_STATE_METRICS_VERSION.tar.gz"
 ENV KUBE_STATE_METRICS_SHA256 {{ $kubestatemetrics.Sha256 }}
 
-ENV C2D_RELEASE=${KUBE_STATE_METRICS_VERSION}
-
 RUN set -x && \
     apt-get update && \
     apt-get install -qq -y wget && \
@@ -40,6 +38,8 @@ RUN set -x && \
 
 # Build the final image
 FROM {{ .From }}
+
+ENV C2D_RELEASE={{ $kubestatemetrics.Version }}
 
 COPY --from=downloader /release/LICENSE /kube-state-metrics-LICENSE
 COPY --from=builder /go/src/k8s.io/kube-state-metrics/kube-state-metrics /
