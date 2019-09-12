@@ -36,6 +36,8 @@ RUN set -x && \
 # Build the final image
 FROM gcr.io/google-appengine/debian9
 
+ENV C2D_RELEASE=1.6.0
+
 COPY --from=downloader /release/LICENSE /kube-state-metrics-LICENSE
 COPY --from=builder /go/src/k8s.io/kube-state-metrics/kube-state-metrics /
 
