@@ -16,14 +16,14 @@ _variables:
   from: &from gcr.io/google-appengine/debian9
 
 versions:
-  - dir: '1/debian9/1.7'
+  - dir: '1/debian9/1.8'
     repo: kube-state-metrics1
     tags:
-      - '1.7.2-debian9'
-      - '1.7-debian9'
+      - '1.8.0-debian9'
+      - '1.8-debian9'
       - '1-debian9'
-      - '1.7.2'
-      - '1.7'
+      - '1.8.0'
+      - '1.8'
       - '1'
       - 'latest'
     from: *from
@@ -31,8 +31,8 @@ versions:
       golangVersion: 1.12
     packages:
       kubestatemetrics:
-        version: '1.7.2'
-        sha256: 'cb991bfce8288ef97cc7bbd8729068d0d3238890c091e09874956cc555a0b515'
+        version: '1.8.0'
+        sha256: '4fcf035b0be2696b714e425905adaf090729b2fafe8d6defc5bd421c07426237'
   - dir: '1/debian9/1.6'
     repo: kube-state-metrics1
     tags:
