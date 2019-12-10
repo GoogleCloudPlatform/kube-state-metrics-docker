@@ -3,16 +3,11 @@ FROM gcr.io/google-appengine/debian9 as downloader
 
 ENV KUBE_STATE_METRICS_VERSION 1.8.0
 ENV KUBE_STATE_METRICS_URL="https://github.com/kubernetes/kube-state-metrics/archive/v$KUBE_STATE_METRICS_VERSION.tar.gz"
-ENV KUBE_STATE_METRICS_SHA256 8b8dbfe3b25e6b7019ecb3c8b0dfa8c309175da8f4e2133b345f44f420f52965
 
 RUN set -x && \
     apt-get update && \
-    apt-get install -qq -y wget && \
-    mkdir release && \
-    wget -O release.tar.gz "$KUBE_STATE_METRICS_URL" && \
-    echo "$KUBE_STATE_METRICS_SHA256 release.tar.gz" | sha256sum -c - && \
-    tar xfvz release.tar.gz --strip-components=1 -C release
-
+    apt-get install -qq -y wget git && \
+    git clone https://github.com/kubernetes/kube-state-metrics.git --branch v${KUBE_STATE_METRICS_VERSION} release
 
 # Build the binary with Go
 FROM golang:1.12 as builder
@@ -31,7 +26,6 @@ RUN set -x && \
     go build \
       -ldflags="-s -w -X ${PKG}/version.Release=${TAG} -X ${PKG}/version.BuildDate=${BuildDate}" \
       -o kube-state-metrics
-
 
 # Build the final image
 FROM gcr.io/google-appengine/debian9
