@@ -16,22 +16,22 @@
 cloudbuild:
   enable_parallel: false
 versions:
-- dir: 1/debian9/1.8
+- dir: 1/debian9/1.9
   from: gcr.io/google-appengine/debian9
   packages:
     kubestatemetrics:
-      version: 1.8.0
+      version: 1.9.2
   repo: kube-state-metrics1
   tags:
-  - 1.8.0-debian9
-  - 1.8-debian9
+  - 1.9.2-debian9
+  - 1.9-debian9
   - 1-debian9
-  - 1.8.0
-  - '1.8'
+  - 1.9.2
+  - '1.9'
   - '1'
   - latest
   templateArgs:
-    golangVersion: '1.12'
+    golangVersion: '1.13'
 - dir: 1/debian9/1.6
   from: gcr.io/google-appengine/debian9
   packages:
