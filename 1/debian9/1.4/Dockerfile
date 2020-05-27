@@ -27,7 +27,7 @@ RUN set -x && \
       -o kube-state-metrics
 
 # Build the final image
-FROM gcr.io/google-appengine/debian9
+FROM marketplace.gcr.io/google/debian9
 
 ENV C2D_RELEASE=1.4.0
 
