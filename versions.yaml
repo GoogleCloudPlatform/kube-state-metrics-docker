@@ -20,13 +20,13 @@ versions:
   from: marketplace.gcr.io/google/debian9
   packages:
     kubestatemetrics:
-      version: 1.9.6
+      version: 1.9.7
   repo: kube-state-metrics1
   tags:
-  - 1.9.6-debian9
+  - 1.9.7-debian9
   - 1.9-debian9
   - 1-debian9
-  - 1.9.6
+  - 1.9.7
   - '1.9'
   - '1'
   - latest
