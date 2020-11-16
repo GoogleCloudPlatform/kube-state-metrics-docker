@@ -35,7 +35,7 @@ COPY --from=downloader /release/LICENSE /kube-state-metrics-LICENSE
 COPY --from=builder /go/src/k8s.io/kube-state-metrics/kube-state-metrics /
 
 VOLUME /tmp
-User nobody
+USER nobody
 
 EXPOSE 8080
 EXPOSE 8081
