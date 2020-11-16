@@ -17,7 +17,7 @@ cloudbuild:
   enable_parallel: false
 versions:
 - dir: 1/distroless/1.9
-  from: marketplace.gcr.io/google/debian9
+  from: gcr.io/distroless/static:latest
   packages:
     kubestatemetrics:
       version: 1.9.7
