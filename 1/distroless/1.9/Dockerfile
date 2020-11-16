@@ -9,7 +9,7 @@ RUN set -x && \
     git clone https://github.com/kubernetes/kube-state-metrics.git --branch v${KUBE_STATE_METRICS_VERSION} release
 
 # Build the binary with Go
-FROM golang:1.13 as builder
+FROM golang:1.15 as builder
 WORKDIR /go/src/k8s.io/kube-state-metrics
 
 ENV PKG=k8s.io/kube-state-metrics
@@ -27,7 +27,7 @@ RUN set -x && \
       -o kube-state-metrics
 
 # Build the final image
-FROM marketplace.gcr.io/google/debian9
+FROM gcr.io/distroless/static:latest
 
 ENV C2D_RELEASE=1.9.7
 
