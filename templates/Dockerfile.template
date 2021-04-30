@@ -1,4 +1,4 @@
-{{- $kubestatemetrics := index .Packages "kubestatemetrics" -}}
+{{- $kubestatemetrics := index .Packages "kube-state-metrics" -}}
 {{- $golangVersion := index .TemplateArgs "golangVersion" -}}
 
 # Download and unpack the Kube State Merics release code from github
