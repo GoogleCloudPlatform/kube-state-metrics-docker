@@ -28,6 +28,22 @@ versions:
   - 1-distroless
   templateArgs:
     golangVersion: '1.15'
+- dir: 2/debian9/2.1
+  from: marketplace.gcr.io/google/debian9
+  packages:
+    kube-state-metrics:
+      version: 2.1.0
+  repo: kube-state-metrics2
+  tags:
+  - 2.1.0-debian9
+  - 2.1-debian9
+  - 2-debian9
+  - 2.1.0
+  - '2.1'
+  - '2'
+  - latest
+  templateArgs:
+    golangVersion: '1.16'  
 - dir: 1/debian9/1.9
   from: marketplace.gcr.io/google/debian9
   packages:
