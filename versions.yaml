@@ -32,13 +32,13 @@ versions:
   from: marketplace.gcr.io/google/debian9
   packages:
     kube-state-metrics:
-      version: 2.2.0
+      version: 2.2.1
   repo: kube-state-metrics2
   tags:
-  - 2.2.0-debian9
+  - 2.2.1-debian9
   - 2.2-debian9
   - 2-debian9
-  - 2.2.2
+  - 2.2.1
   - '2.2'
   - '2'
   - latest
