@@ -27,7 +27,7 @@ RUN set -x && \
       -o kube-state-metrics
 
 # Build the final image
-FROM gcr.io/distroless/static:latest
+FROM gcr.io/distroless/base:latest
 
 ENV C2D_RELEASE=1.9.7
 
