@@ -17,7 +17,7 @@ cloudbuild:
   enable_parallel: false
 versions:
 - dir: 1/distroless/1.9
-  from: gcr.io/distroless/static:latest
+  from: gcr.io/distroless/base:latest
   packages:
     kube-state-metrics:
       version: 1.9.7
