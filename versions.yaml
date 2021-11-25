@@ -16,18 +16,6 @@
 cloudbuild:
   enable_parallel: false
 versions:
-- dir: 1/distroless/1.9
-  from: gcr.io/distroless/base:latest
-  packages:
-    kube-state-metrics:
-      version: 1.9.7
-  repo: kube-state-metrics1
-  tags:
-  - 1.9.7-distroless
-  - 1.9-distroless
-  - 1-distroless
-  templateArgs:
-    golangVersion: '1.15'
 - dir: 2/debian9/2.2
   from: marketplace.gcr.io/google/debian9
   packages:
