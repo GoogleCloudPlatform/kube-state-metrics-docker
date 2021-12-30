@@ -16,20 +16,20 @@
 cloudbuild:
   enable_parallel: false
 versions:
-- dir: 2/debian9/2.2
+- dir: 2/debian9/2.3
   from: marketplace.gcr.io/google/debian9
   packages:
     golang:
-      version: 1.16.9
+      version: 1.17.4
     kube-state-metrics:
-      version: 2.2.4
+      version: 2.3.0
   repo: kube-state-metrics2
   tags:
-  - 2.2.4-debian9
-  - 2.2-debian9
+  - 2.3.0-debian9
+  - 2.3-debian9
   - 2-debian9
-  - 2.2.4
-  - '2.2'
+  - 2.3.0
+  - '2.3'
   - '2'
   - latest
 - dir: 1/debian9/1.9
