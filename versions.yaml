@@ -1,4 +1,4 @@
-# Copyright 2021 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,20 +16,20 @@
 cloudbuild:
   enable_parallel: false
 versions:
-- dir: 2/debian9/2.3
+- dir: 2/debian9/2.4
   from: marketplace.gcr.io/google/debian9
   packages:
     golang:
-      version: 1.17.4
+      version: 1.17.7
     kube-state-metrics:
-      version: 2.3.0
+      version: 2.4.1
   repo: kube-state-metrics2
   tags:
-  - 2.3.0-debian9
-  - 2.3-debian9
+  - 2.4.1-debian9
+  - 2.4-debian9
   - 2-debian9
-  - 2.3.0
-  - '2.3'
+  - 2.4.1
+  - '2.4'
   - '2'
   - latest
 - dir: 1/debian9/1.9
