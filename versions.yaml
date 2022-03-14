@@ -22,13 +22,13 @@ versions:
     golang:
       version: 1.17.7
     kube-state-metrics:
-      version: 2.4.1
+      version: 2.4.2
   repo: kube-state-metrics2
   tags:
-  - 2.4.1-debian9
+  - 2.4.2-debian9
   - 2.4-debian9
   - 2-debian9
-  - 2.4.1
+  - 2.4.2
   - '2.4'
   - '2'
   - latest
