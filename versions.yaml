@@ -1,4 +1,4 @@
-# Copyright 2022 Google LLC
+# Copyright 2023 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,24 +16,24 @@
 cloudbuild:
   enable_parallel: false
 versions:
-- dir: 2/debian9/2.6
-  from: marketplace.gcr.io/google/debian9
+- dir: 2/debian11/2.8
+  from: marketplace.gcr.io/google/c2d-debian11
   packages:
     golang:
-      version: 1.18.5
+      version: 1.19.4
     kube-state-metrics:
-      version: 2.6.0
+      version: 2.8.0
   repo: kube-state-metrics2
   tags:
-  - 2.6.0-debian9
-  - 2.6-debian9
-  - 2-debian9
-  - 2.6.0
-  - '2.6'
+  - 2.8.0-debian11
+  - 2.8-debian11
+  - 2-debian11
+  - 2.8.0
+  - '2.8'
   - '2'
   - latest
-- dir: 1/debian9/1.9
-  from: marketplace.gcr.io/google/debian9
+- dir: 1/debian11/1.9
+  from: marketplace.gcr.io/google/c2d-debian11
   packages:
     golang:
       version: 1.15.7
@@ -41,9 +41,9 @@ versions:
       version: 1.9.8
   repo: kube-state-metrics1
   tags:
-  - 1.9.8-debian9
-  - 1.9-debian9
-  - 1-debian9
+  - 1.9.8-debian11
+  - 1.9-debian11
+  - 1-debian11
   - 1.9.8
   - '1.9'
   - '1'
