@@ -1,24 +1,18 @@
-{{- $kubestatemetrics := index .Packages "kubestatemetrics" -}}
-{{- $golangVersion := index .TemplateArgs "golangVersion" -}}
+{{- $kubestatemetrics := index .Packages "kube-state-metrics" -}}
+{{- $golang:= index .Packages "golang" -}}
 
 # Download and unpack the Kube State Merics release code from github
 FROM gcr.io/google-appengine/debian9 as downloader
 
 ENV KUBE_STATE_METRICS_VERSION {{ $kubestatemetrics.Version }}
-ENV KUBE_STATE_METRICS_URL="https://github.com/kubernetes/kube-state-metrics/archive/v$KUBE_STATE_METRICS_VERSION.tar.gz"
-ENV KUBE_STATE_METRICS_SHA256 {{ $kubestatemetrics.Sha256 }}
 
 RUN set -x && \
     apt-get update && \
-    apt-get install -qq -y wget && \
-    mkdir release && \
-    wget -O release.tar.gz "$KUBE_STATE_METRICS_URL" && \
-    echo "$KUBE_STATE_METRICS_SHA256 release.tar.gz" | sha256sum -c - && \
-    tar xfvz release.tar.gz --strip-components=1 -C release
-
+    apt-get install -qq -y wget git && \
+    git clone https://github.com/kubernetes/kube-state-metrics.git --branch v${KUBE_STATE_METRICS_VERSION} release
 
 # Build the binary with Go
-FROM golang:{{ $golangVersion }} as builder
+FROM golang:{{ $golang.Version }} as builder
 WORKDIR /go/src/k8s.io/kube-state-metrics
 
 ENV PKG=k8s.io/kube-state-metrics
@@ -35,14 +29,16 @@ RUN set -x && \
       -ldflags="-s -w -X ${PKG}/version.Release=${TAG} -X ${PKG}/version.BuildDate=${BuildDate}" \
       -o kube-state-metrics
 
-
 # Build the final image
 FROM {{ .From }}
+
+ENV C2D_RELEASE={{ $kubestatemetrics.Version }}
 
 COPY --from=downloader /release/LICENSE /kube-state-metrics-LICENSE
 COPY --from=builder /go/src/k8s.io/kube-state-metrics/kube-state-metrics /
 
 VOLUME /tmp
+USER nobody
 
 EXPOSE 8080
 EXPOSE 8081
