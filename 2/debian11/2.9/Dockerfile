@@ -1,7 +1,7 @@
 # Download and unpack the Kube State Merics release code from github
-FROM gcr.io/google-appengine/debian9 as downloader
+FROM marketplace.gcr.io/google/c2d-debian11 as downloader
 
-ENV KUBE_STATE_METRICS_VERSION 1.9.7
+ENV KUBE_STATE_METRICS_VERSION 2.9.2
 
 RUN set -x && \
     apt-get update && \
@@ -9,11 +9,11 @@ RUN set -x && \
     git clone https://github.com/kubernetes/kube-state-metrics.git --branch v${KUBE_STATE_METRICS_VERSION} release
 
 # Build the binary with Go
-FROM golang:1.15 as builder
+FROM golang:1.19.7 as builder
 WORKDIR /go/src/k8s.io/kube-state-metrics
 
 ENV PKG=k8s.io/kube-state-metrics
-ENV TAG=1.9.7
+ENV TAG=2.9.2
 
 ENV GCO_ENABLED=0
 ENV GOOS=linux
@@ -27,11 +27,12 @@ RUN set -x && \
       -o kube-state-metrics
 
 # Build the final image
-FROM gcr.io/distroless/base:latest
+FROM marketplace.gcr.io/google/c2d-debian11
 
-ENV C2D_RELEASE=1.9.7
+ENV C2D_RELEASE=2.9.2
 
 COPY --from=downloader /release/LICENSE /kube-state-metrics-LICENSE
+COPY --from=downloader /release /usr/src/kube-state-metrics
 COPY --from=builder /go/src/k8s.io/kube-state-metrics/kube-state-metrics /
 
 VOLUME /tmp
