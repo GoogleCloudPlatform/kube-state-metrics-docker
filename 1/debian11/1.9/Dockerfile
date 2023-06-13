@@ -32,6 +32,7 @@ FROM marketplace.gcr.io/google/c2d-debian11
 ENV C2D_RELEASE=1.9.8
 
 COPY --from=downloader /release/LICENSE /kube-state-metrics-LICENSE
+COPY --from=downloader /release /usr/src/kube-state-metrics
 COPY --from=builder /go/src/k8s.io/kube-state-metrics/kube-state-metrics /
 
 VOLUME /tmp
