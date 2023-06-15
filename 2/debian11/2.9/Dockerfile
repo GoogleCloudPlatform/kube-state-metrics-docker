@@ -23,7 +23,7 @@ COPY --from=downloader release /go/src/k8s.io/kube-state-metrics
 RUN set -x && \
     BuildDate="$(date -u +%Y-%m-%dT%H:%M:%SZ)" && \
     go build \
-      -ldflags="-s -w -X ${PKG}/version.Release=${TAG} -X ${PKG}/version.BuildDate=${BuildDate}" \
+      -ldflags="-s -w -X ${PKG}/version.Release=${TAG} -X ${PKG}/version.BuildDate=${BuildDate} -X ${PKG}/version.Version=${TAG}" \
       -o kube-state-metrics
 
 # Build the final image
