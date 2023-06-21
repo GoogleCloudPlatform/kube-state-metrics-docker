@@ -20,7 +20,7 @@ versions:
   from: marketplace.gcr.io/google/c2d-debian11
   packages:
     golang:
-      version: 1.19.7
+      version: 1.20.4
     kube-state-metrics:
       version: 2.9.2
   repo: kube-state-metrics2
@@ -32,3 +32,4 @@ versions:
   - '2.9'
   - '2'
   - latest
+
