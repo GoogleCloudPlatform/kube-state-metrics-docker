@@ -32,4 +32,20 @@ versions:
   - '2.10'
   - '2'
   - latest
+- dir: 1/debian11/1.9
+  from: marketplace.gcr.io/google/c2d-debian11
+  packages:
+    golang:
+      version: 1.15.7
+    kube-state-metrics:
+      version: 1.9.8
+  repo: kube-state-metrics1
+  tags:
+  - 1.9.8-debian11
+  - 1.9-debian11
+  - 1-debian11
+  - 1.9.8
+  - '1.9'
+  - '1'
+  - latest
 
