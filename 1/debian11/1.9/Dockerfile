@@ -1,5 +1,5 @@
 # Download and unpack the Kube State Merics release code from github
-FROM gcr.io/google-appengine/debian9 as downloader
+FROM marketplace.gcr.io/google/c2d-debian11 as downloader
 
 ENV KUBE_STATE_METRICS_VERSION 1.9.8
 
