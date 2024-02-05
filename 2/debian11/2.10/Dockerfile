@@ -1,7 +1,7 @@
 # Download and unpack the Kube State Merics release code from github
 FROM marketplace.gcr.io/google/c2d-debian11 as downloader
 
-ENV KUBE_STATE_METRICS_VERSION 2.10.0
+ENV KUBE_STATE_METRICS_VERSION 2.10.1
 
 RUN set -x && \
     apt-get update && \
@@ -9,11 +9,11 @@ RUN set -x && \
     git clone https://github.com/kubernetes/kube-state-metrics.git --branch v${KUBE_STATE_METRICS_VERSION} release
 
 # Build the binary with Go
-FROM golang:1.20.7 as builder
+FROM golang:1.20.10 as builder
 WORKDIR /go/src/k8s.io/kube-state-metrics
 
 ENV PKG=k8s.io/kube-state-metrics
-ENV TAG=2.10.0
+ENV TAG=2.10.1
 
 ENV GCO_ENABLED=0
 ENV GOOS=linux
@@ -29,7 +29,7 @@ RUN set -x && \
 # Build the final image
 FROM marketplace.gcr.io/google/c2d-debian11
 
-ENV C2D_RELEASE=2.10.0
+ENV C2D_RELEASE=2.10.1
 
 COPY --from=downloader /release/LICENSE /kube-state-metrics-LICENSE
 COPY --from=downloader /release /usr/src/kube-state-metrics
