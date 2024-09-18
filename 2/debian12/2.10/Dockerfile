@@ -1,5 +1,5 @@
 # Download and unpack the Kube State Merics release code from github
-FROM marketplace.gcr.io/google/c2d-debian11 as downloader
+FROM marketplace.gcr.io/google/debian12 as downloader
 
 ENV KUBE_STATE_METRICS_VERSION 2.10.1
 
@@ -27,7 +27,7 @@ RUN set -x && \
       -o kube-state-metrics
 
 # Build the final image
-FROM marketplace.gcr.io/google/c2d-debian11
+FROM marketplace.gcr.io/google/debian12
 
 ENV C2D_RELEASE=2.10.1
 
