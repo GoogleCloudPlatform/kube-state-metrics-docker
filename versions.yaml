@@ -16,8 +16,24 @@
 cloudbuild:
   enable_parallel: false
 versions:
-- dir: 2/debian11/2.10
-  from: marketplace.gcr.io/google/c2d-debian11
+- dir: 2/debian12/2.13
+  from: marketplace.gcr.io/google/debian12
+  packages:
+    golang:
+      version: 1.22.0
+    kube-state-metrics:
+      version: 2.13.0
+  repo: kube-state-metrics2
+  tags:
+  - 2.13.0-debian12
+  - 2.13-debian12
+  - 2-debian12
+  - 2.13.0
+  - '2.13'
+  - '2'
+  - latest
+- dir: 2/debian12/2.10
+  from: marketplace.gcr.io/google/debian12
   packages:
     golang:
       version: 1.21.1
@@ -25,12 +41,7 @@ versions:
       version: 2.10.1
   repo: kube-state-metrics2
   tags:
-  - 2.10.1-debian11
-  - 2.10-debian11
-  - 2-debian11
+  - 2.10.1-debian12
+  - 2.10-debian12
   - 2.10.1
   - '2.10'
-  - '2'
-  - latest
-
-
