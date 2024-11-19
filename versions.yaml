@@ -24,6 +24,9 @@ versions:
     kube-state-metrics:
       version: 2.13.0
   repo: kube-state-metrics2
+  annotations:
+  - key: com.googleapis.cloudmarketplace.product.service.name
+    value: services/c613a576-2e1c-40bb-ae32-ca094100f227.cloudpartnerservices.goog
   tags:
   - 2.13.0-debian12
   - 2.13-debian12
@@ -37,6 +40,9 @@ versions:
   packages:
     golang:
       version: 1.21.1
+  annotations:
+  - key: com.googleapis.cloudmarketplace.product.service.name
+    value: services/c613a576-2e1c-40bb-ae32-ca094100f227.cloudpartnerservices.goog
     kube-state-metrics:
       version: 2.10.1
   repo: kube-state-metrics2
