@@ -41,11 +41,11 @@ versions:
   packages:
     golang:
       version: 1.21.1
+    kube-state-metrics:
+      version: 2.10.1
   annotations:
   - key: com.googleapis.cloudmarketplace.product.service.name
     value: services/c613a576-2e1c-40bb-ae32-ca094100f227.cloudpartnerservices.goog
-    kube-state-metrics:
-      version: 2.10.1
   repo: kube-state-metrics2
   tags:
   - 2.10.1-debian12
