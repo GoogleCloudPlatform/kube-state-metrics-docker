@@ -12,7 +12,7 @@ RUN set -x && \
 FROM golang:1.22.0 as builder
 WORKDIR /go/src/k8s.io/kube-state-metrics
 
-ENV PKG=k8s.io/kube-state-metrics
+ENV PKG=github.com/prometheus/common
 ENV TAG=2.13.0
 
 ENV GCO_ENABLED=0
@@ -23,7 +23,7 @@ COPY --from=downloader release /go/src/k8s.io/kube-state-metrics
 RUN set -x && \
     BuildDate="$(date -u +%Y-%m-%dT%H:%M:%SZ)" && \
     go build \
-      -ldflags="-s -w -X ${PKG}/version.Release=${TAG} -X ${PKG}/version.BuildDate=${BuildDate}" \
+      -ldflags="-s -w -X ${PKG}/version.Version=${TAG} -X ${PKG}/version.BuildDate=${BuildDate} -X ${PKG}/version.BuildUser=C2D" \
       -o kube-state-metrics
 
 # Build the final image
